@@ -1,0 +1,15 @@
+.council-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.width-10 {
+  width: 10%;
+}
+
+.council-table th,
+.council-table td {
+  border: 1px solid #a4a3a3;
+  padding: 12px 8px;
+  text-align: left;
+}

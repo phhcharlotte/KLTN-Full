@@ -1,0 +1,54 @@
+.notification {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.notification-list {
+  width: 20%;
+  height: 100%;
+  padding: 0;
+  border-right: 1px solid gray;
+  overflow: scroll;
+}
+.notification-list li {
+  list-style-type: none;
+  width: 95%;
+  border-bottom: 1px solid rgb(189, 189, 189);
+  overflow: hidden;
+  height: 35px;
+  line-height: 35px;
+  color: rgb(89, 89, 89);
+  text-align: left;
+}
+.bold {
+  font-weight: bold;
+  color: rgb(89, 89, 89);
+}
+
+.notification-list li:hover {
+  background-color: rgb(180, 180, 180);
+  cursor: pointer;
+}
+.notification-content {
+  /* background-color: brown; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 100%;
+}
+.show-content {
+  width: 80%;
+  height: 80%;
+  background-color: rgb(252, 244, 234);
+  border: 1px solid rgb(188, 188, 188);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.delete-notif {
+  width: 500px;
+  height: 50px;
+}

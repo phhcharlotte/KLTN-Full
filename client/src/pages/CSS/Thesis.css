@@ -1,0 +1,29 @@
+/* src/pages/CSS/ThesisPage.css */
+.thesis-page {
+  /* padding: 20px; */
+}
+
+.header-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.add-thesis-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  width: 200px;
+}
+.input-search {
+  min-width: 300px;
+  position: relative;
+}
+.input-search > .bx-search {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+}

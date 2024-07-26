@@ -1,0 +1,18 @@
+/* src/components/DeadlineForm.css */
+.deadline-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.deadline-form input,
+.deadline-form select,
+.deadline-form button {
+  padding: 10px;
+  margin: 5px 0;
+}

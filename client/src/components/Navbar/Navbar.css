@@ -1,0 +1,112 @@
+/* src/components/Navbar/Navbar.css */
+.navbar {
+  background-color: #001529;
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.navbar > nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-menu > li > .active {
+  background-color: #777;
+  border-radius: 6px;
+}
+.nav-menu li:hover {
+  background-color: #777;
+  border-radius: 6px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.nav-menu a:hover {
+  text-decoration: underline;
+}
+
+.nav-logout {
+  margin-top: auto;
+}
+
+.nav-logout button {
+  background-color: #555;
+  width: 100%;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.nav-logout button:hover {
+  background-color: #777;
+}
+.nav-logout {
+  position: relative;
+  margin-right: 10px;
+}
+.nav-logout:hover > .menu-logout {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+.menu-logout {
+  display: block;
+  position: absolute;
+  visibility: hidden;
+  background-color: #fff;
+  border-radius: 8px;
+  color: rgb(23, 43, 77);
+  min-width: 200px;
+  top: 50px;
+  right: -5px;
+  box-shadow: rgba(0, 0, 0, 0.31) 0px 0px 1px 0px,
+    rgba(0, 0, 0, 0.25) 0px 5px 8px -2px;
+  transition: all 0.3s ease 0s;
+  z-index: 100;
+}
+
+.menu-logout > .your-name {
+  border-bottom: 1px solid #e1e1e1;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.menu-logout > p {
+  padding: 12px;
+}
+
+.nav-logout > img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.logo {
+  background-color: #fff;
+}
+.logo > img {
+  width: 50px;
+  height: 35px;
+  object-fit: cover;
+}
