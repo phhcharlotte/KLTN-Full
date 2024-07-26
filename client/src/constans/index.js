@@ -1,4 +1,4 @@
-export const SERVER_URL = 'http://localhost:3001'
+export const SERVER_URL = 'https://kltn-full-backend.onrender.com'
 
 export const Header = (token) => {
   return {
