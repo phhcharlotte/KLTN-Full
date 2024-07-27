@@ -1,48 +1,48 @@
-import React, { useState } from 'react'
-import './ShowThesisTableForAdmin.css'
-import Pagination from '../Pagination/Pagination'
-import SelectCouncil from '../SelectCouncil/SelectCouncil'
-import SelectTwoOption from '../SelectTwoOption/SelectTwoOption'
-import InputDate from '../InputDate/InputDate'
-import { Header, SERVER_URL } from '../../constans'
+import React, { useState } from "react";
+import "./ShowThesisTableForAdmin.css";
+import Pagination from "../Pagination/Pagination";
+import SelectCouncil from "../SelectCouncil/SelectCouncil";
+import SelectTwoOption from "../SelectTwoOption/SelectTwoOption";
+import InputDate from "../InputDate/InputDate";
+import { Header, SERVER_URL } from "../../constans";
 
 const ShowThesisTableForAdmin = ({ listTeacher, data, setData }) => {
-  const [currentPage, setCurrentPage] = useState(1)
-  const itemsPerPage = 10
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
-  const end = currentPage * itemsPerPage
-  const start = end - itemsPerPage
-  const renderData = data.slice(start, end)
+  const end = currentPage * itemsPerPage;
+  const start = end - itemsPerPage;
+  const renderData = data.slice(start, end);
   const handleNextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1)
-  }
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
 
   const handlePrevPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1)
-  }
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
 
-  const totalPages = Math.ceil(data.length / itemsPerPage)
+  const totalPages = Math.ceil(data.length / itemsPerPage);
 
   // role = field - tên trường muốn cập nhật.
   const handleChange = async (value, field) => {
     try {
-      const studentCode = value.slice(0, 6)
-      const updateName = value.slice(7)
+      const studentCode = value.slice(0, 6);
+      const updateName = value.slice(7);
       await fetch(`${SERVER_URL}/status/update`, {
-        method: 'PUT',
-        headers: Header(localStorage.getItem('token')),
+        method: "PUT",
+        headers: Header(localStorage.getItem("token")),
         body: JSON.stringify({
           field: field,
           studentCode,
           updateName,
         }),
-      })
+      });
     } catch (error) {}
-  }
+  };
 
   return (
     <>
-      <table className='thesis-table'>
+      <table className="thesis-table">
         <thead>
           <tr>
             <th>STT</th>
@@ -54,8 +54,8 @@ const ShowThesisTableForAdmin = ({ listTeacher, data, setData }) => {
             <th>NGÀY SINH</th>
             <th>LỚP</th>
             <th>SĐT</th>
-            <th>ĐỀ TÀI</th>
-            <th>GVHD</th>
+            <th className="min-width">ĐỀ TÀI</th>
+            <th className="min-width">GVHD</th>
             <th>CHỦ TỊCH</th>
             <th>PHẢN BIỆN</th>
             <th>THƯ KÝ</th>
@@ -79,58 +79,61 @@ const ShowThesisTableForAdmin = ({ listTeacher, data, setData }) => {
               <td>{dt.ns}</td>
               <td>{dt.lcn}</td>
               <td>{dt.sdt}</td>
-              <td>{dt.tdt}</td>
-              <td>{dt.gvhd}</td>
+              <td className="min-width">{dt.tdt}</td>
+              <td className="min-width">{dt.gvhd}</td>
               <td>
                 <SelectCouncil
                   listTeacher={listTeacher}
-                  value={dt.msv + ' ' + dt.ct}
-                  onChange={(value) => handleChange(value, 'president')}
+                  value={dt.msv + " " + dt.ct}
+                  onChange={(value) => handleChange(value, "president")}
                   msv={dt.msv}
                 />
               </td>
               <td>
                 <SelectCouncil
                   listTeacher={listTeacher}
-                  value={dt.msv + ' ' + dt.pb}
-                  onChange={(value) => handleChange(value, 'counterArgument')}
+                  value={dt.msv + " " + dt.pb}
+                  onChange={(value) => handleChange(value, "counterArgument")}
                   msv={dt.msv}
                 />
               </td>
               <td>
                 <SelectCouncil
                   listTeacher={listTeacher}
-                  value={dt.msv + ' ' + dt.tk}
-                  onChange={(value) => handleChange(value, 'secretary')}
+                  value={dt.msv + " " + dt.tk}
+                  onChange={(value) => handleChange(value, "secretary")}
                   msv={dt.msv}
                 />
               </td>
               <td>
                 <SelectCouncil
                   listTeacher={listTeacher}
-                  value={dt.msv + ' ' + dt.uv}
-                  onChange={(value) => handleChange(value, 'commissioner')}
+                  value={dt.msv + " " + dt.uv}
+                  onChange={(value) => handleChange(value, "commissioner")}
                   msv={dt.msv}
                 />
               </td>
               <td>
-                <InputDate onBlur={(value) => handleChange(`${dt.msv} ${value}`, 'date')} value={dt.ng} />
+                <InputDate
+                  onBlur={(value) => handleChange(`${dt.msv} ${value}`, "date")}
+                  value={dt.ng}
+                />
               </td>
               <td>{dt.d}</td>
               <td>
                 <SelectTwoOption
-                  value={dt.msv + ' ' + dt.gh}
-                  onChange={(value) => handleChange(value, 'extend')}
+                  value={dt.msv + " " + dt.gh}
+                  onChange={(value) => handleChange(value, "extend")}
                   msv={dt.msv}
-                  option={{ op1: 'Không', op2: 'Có' }}
+                  option={{ op1: "Không", op2: "Có" }}
                 />
               </td>
               <td>
                 <SelectTwoOption
-                  value={dt.msv + ' ' + dt.tt}
-                  onChange={(value) => handleChange(value, 'protectStatus')}
+                  value={dt.msv + " " + dt.tt}
+                  onChange={(value) => handleChange(value, "protectStatus")}
                   msv={dt.msv}
-                  option={{ op1: 'Chưa bảo vệ', op2: 'Đã bảo vệ' }}
+                  option={{ op1: "Chưa bảo vệ", op2: "Đã bảo vệ" }}
                 />
               </td>
               <td>{dt.alp}</td>
@@ -139,8 +142,8 @@ const ShowThesisTableForAdmin = ({ listTeacher, data, setData }) => {
         </tbody>
       </table>
       {!data.length ? (
-        <div className='no-data'>
-          <i className='bx bx-error-alt'></i>Không có dữ liệu
+        <div className="no-data">
+          <i className="bx bx-error-alt"></i>Không có dữ liệu
         </div>
       ) : null}
       {data.length > 10 && (
@@ -152,7 +155,7 @@ const ShowThesisTableForAdmin = ({ listTeacher, data, setData }) => {
         />
       )}
     </>
-  )
-}
+  );
+};
 
-export default ShowThesisTableForAdmin
+export default ShowThesisTableForAdmin;
